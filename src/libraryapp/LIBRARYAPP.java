@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package libraryapp;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -18,10 +17,8 @@ public class LIBRARYAPP extends JFrame implements ActionListener {
     public LIBRARYAPP(){
         setTitle("Library Management System") ;        
         setSize(400,175);
-        setLocationRelativeTo(null);   
-       
-        
-        
+        setLocationRelativeTo(null);     
+             
         
         //Buttons Inserted
         JButton jbtn1;
@@ -45,7 +42,7 @@ public class LIBRARYAPP extends JFrame implements ActionListener {
         setVisible(true);
     }
    
-    
+    Admin ad=new Admin();
     public static void main(String[] args) {
        LIBRARYAPP lib=new LIBRARYAPP();
        
@@ -54,6 +51,9 @@ public class LIBRARYAPP extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Admin Login")){
+            this.setVisible(false);
+           
+            ad.jfrm.setVisible(true);            
         }
         if(e.getActionCommand().equals("Librarian Login")){
         }
