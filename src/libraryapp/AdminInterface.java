@@ -54,9 +54,14 @@ public class AdminInterface extends JFrame implements ActionListener {
     
     
     }
-    @Override
+    
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if(e.getActionCommand().equals("Add Librarian")){
+           
+           this.setVisible(false);
+           new AddLibrarian();
+       
+       }
     }
     
 }
