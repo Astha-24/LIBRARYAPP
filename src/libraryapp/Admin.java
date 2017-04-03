@@ -56,7 +56,8 @@ public class Admin implements ActionListener  {
         user_name=jtf.getText();
         password=jpass.getText();
         if (password.equals("admin123")&& user_name.equals("admin")){
-        JOptionPane.showMessageDialog(jfrm, "Authentication Succesful");}
+            jfrm.setVisible(false);
+            new AdminInterface();}
         else{
             JOptionPane.showMessageDialog(jfrm, "Authentication Failed");}
         }
