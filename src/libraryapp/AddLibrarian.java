@@ -122,6 +122,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
                 System.out.println("Row Inserted");
                 JOptionPane.showMessageDialog(this, "Added successfully");
                 this.setVisible(false);
+                System.exit(0);
             }else{
                 JOptionPane.showMessageDialog(this, "Check your input parameters");
                 System.out.println("Row Not Inserted");
@@ -130,8 +131,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
             est.printStackTrace();
         }}else{
             JOptionPane.showMessageDialog(this, "All Fields are Mandatory");       
-            this.dispose();
-            new AddLibrarian();                
+                            
         }
             }
     }
