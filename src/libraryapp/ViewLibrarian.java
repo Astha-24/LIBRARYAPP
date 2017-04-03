@@ -8,9 +8,10 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 public class ViewLibrarian extends JFrame {
@@ -20,6 +21,11 @@ public class ViewLibrarian extends JFrame {
     Statement stmt;
     ResultSet res;
     String sql;
+
+     JTable table;
+     JScrollPane jsp;
+     TableModel model;
+            
     public ViewLibrarian(){
         //Vector Coloumn;
         try{   
@@ -40,29 +46,26 @@ public class ViewLibrarian extends JFrame {
                 row=new Vector(c);
                 for (int i=1;i<=c;i++){
                     row.add(res.getString(i));
-                    System.out.println("Done");
-                }
+                    
+                    
+                }                
+                System.out.print("\n");
                 data.add(row);
             }       
-              
-        
-       setSize(500,600);
-       setLocationRelativeTo(null);
-       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       setTitle("Library Managment System");
-       JPanel panel=new JPanel();
-       JTable table=new JTable(data,coloumn);
-       JScrollPane jsp=new JScrollPane();
-       panel.setLayout(new BorderLayout());
-       panel.add(jsp,BorderLayout.CENTER);
-       setContentPane(panel);
-       setVisible(true);    
+           model=new DefaultTableModel(data,coloumn)   ;
+           table=new JTable(model);
+           jsp=new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+           setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           setLayout(new BorderLayout());
+           setSize(500,300);
+           add(jsp,BorderLayout.CENTER);
+           setLocationRelativeTo(null);
+           setVisible(true);
+            
        }catch(Exception e){
            e.printStackTrace();
        }    
     
     }
-    public static void main(String[] args) {
-        ViewLibrarian vl=new ViewLibrarian();
-    }
+    
 }

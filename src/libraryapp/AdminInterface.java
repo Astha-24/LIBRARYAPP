@@ -62,6 +62,12 @@ public class AdminInterface extends JFrame implements ActionListener {
            new AddLibrarian();
        
        }
+       if(e.getActionCommand().equals("View Librarian")){
+           
+           this.setVisible(false);
+           new ViewLibrarian();
+       
+       }
     }
     
 }
