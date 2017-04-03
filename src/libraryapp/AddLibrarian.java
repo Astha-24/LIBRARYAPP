@@ -4,6 +4,7 @@ package libraryapp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,8 +18,9 @@ public class AddLibrarian extends JFrame implements ActionListener{
    /*Database Connections*/
     Connection conn;
     DatabaseConnection dbconn;
-    Statement stmt;
-    String sql;
+    Statement stmt,stmt1;
+    String sql,sql1;
+    ResultSet res;
     JTextField jtf1,jtf2,jtf4,jtf5,jtf6;
     JPasswordField jtf3;
     
@@ -101,7 +103,18 @@ public class AddLibrarian extends JFrame implements ActionListener{
             String name,pass,email,city,contact; 
             
             id=Integer.parseInt(jtf1.getText());
-            
+            try{
+            stmt1=conn.createStatement();
+            sql1="select * from librarian";
+            res =stmt1.executeQuery(sql1);
+            while (res.next()){
+                if (res.getString("id").equals(jtf1.getText())){
+                    JOptionPane.showMessageDialog(this, "This ID is not unique");
+                    break;
+                }
+            }}catch(Exception esss){
+                //esss.printStackTrace();
+            }
             
             
             
@@ -115,9 +128,11 @@ public class AddLibrarian extends JFrame implements ActionListener{
         if (jtf1.getText().trim().length()!=0 && name.trim().length()!=0 && pass.trim().length()!=0 && email.trim().length()!=0 && city.trim().length()!=0 && contact.trim().length()!=0){
                 
             try{
-            sql= "insert into librarian values ('"+id+"','"+name+"','"+pass+"','"+email+"','"+city+"','"+contact+"')";
             stmt=conn.createStatement();
+            sql= "insert into librarian values ('"+id+"','"+name+"','"+pass+"','"+email+"','"+city+"','"+contact+"')";
+            
             int i=stmt.executeUpdate(sql);
+            
             if (i>0){
                 System.out.println("Row Inserted");
                 JOptionPane.showMessageDialog(this, "Added successfully");
@@ -128,7 +143,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
                 System.out.println("Row Not Inserted");
             }
         }catch(Exception est){
-            est.printStackTrace();
+            //est.printStackTrace();
         }}else{
             JOptionPane.showMessageDialog(this, "All Fields are Mandatory");       
                             
