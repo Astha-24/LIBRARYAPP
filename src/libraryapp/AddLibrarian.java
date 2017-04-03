@@ -79,7 +79,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
         add(jlab6);
         add(jtf6);
         
-        
+        jtf1.setToolTipText("ID must be an Integer");
         
         
         
