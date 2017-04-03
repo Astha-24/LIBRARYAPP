@@ -68,6 +68,12 @@ public class AdminInterface extends JFrame implements ActionListener {
            new ViewLibrarian();
        
        }
+     if(e.getActionCommand().equals("Delete Librarian")){
+           
+           this.setVisible(false);
+           new DeleteLibrarian();
+       
+       }
     }
     
 }
