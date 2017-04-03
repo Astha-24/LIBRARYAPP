@@ -74,6 +74,12 @@ public class AdminInterface extends JFrame implements ActionListener {
            new DeleteLibrarian();
        
        }
+     if(e.getActionCommand().equals("Logout")){
+           
+           this.setVisible(false);
+           new LIBRARYAPP();
+       
+       }
     }
     
 }

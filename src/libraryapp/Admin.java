@@ -25,7 +25,7 @@ public class Admin implements ActionListener  {
         jbtn=new JButton("Enter System");
         
         
-        jtf.setToolTipText("Enter your name");
+        
         
         /* Screen Layout */
         jlab.setBounds(10,10,200,25);
@@ -61,7 +61,7 @@ public class Admin implements ActionListener  {
         else{
             JOptionPane.showMessageDialog(jfrm, "Authentication Failed");}
         }
-        //
+        
         }
 
 
