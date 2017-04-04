@@ -41,7 +41,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
         jtf6=new JTextField(25);
         
         JButton jbtn=new JButton("Register");
-        
+        JButton jbtn1=new JButton("Back");
         
         
         
@@ -62,7 +62,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
         
         
         jbtn.setBounds(230,220,150,25);
-        
+        jbtn1.setBounds(10,220,75,25);
         
         
         setSize(470,320);
@@ -86,7 +86,9 @@ public class AddLibrarian extends JFrame implements ActionListener{
         
         
         add(jbtn);
+        add(jbtn1);
         jbtn.addActionListener(this);
+        jbtn1.addActionListener(this);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*DatabaseConnection*/
@@ -137,7 +139,7 @@ public class AddLibrarian extends JFrame implements ActionListener{
                 System.out.println("Row Inserted");
                 JOptionPane.showMessageDialog(this, "Added successfully");
                 this.setVisible(false);
-                System.exit(0);
+                new AdminInterface();
             }else{
                 JOptionPane.showMessageDialog(this, "Check your input parameters");
                 System.out.println("Row Not Inserted");
@@ -149,5 +151,10 @@ public class AddLibrarian extends JFrame implements ActionListener{
                             
         }
             }
+            if(e.getActionCommand().equals("Back")){
+                this.dispose();
+                new AdminInterface();
+            }
+    
     }
 }

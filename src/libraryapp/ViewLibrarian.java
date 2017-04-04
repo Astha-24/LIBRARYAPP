@@ -2,12 +2,18 @@
 package libraryapp;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -58,6 +64,25 @@ public class ViewLibrarian extends JFrame {
            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            setLayout(new BorderLayout());
            setSize(500,300);
+           getContentPane().add(new JLabel("Drag to move", JLabel.CENTER),
+                BorderLayout.CENTER);
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("Menu");
+        menuBar.add(menu);
+        JMenuItem item = new JMenuItem("Back");
+            
+        item.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new AdminInterface();
+                
+            }
+        });
+        menu.add(item);
+        setJMenuBar(menuBar);
+           
            add(jsp,BorderLayout.CENTER);
            setLocationRelativeTo(null);
            setVisible(true);
