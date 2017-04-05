@@ -1,10 +1,8 @@
 package libraryapp;
-//import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -77,9 +75,20 @@ public class LibrarianLogin implements ActionListener  {
             stmt=conn.createStatement();
             sql="select * from Librarian";
             res=stmt.executeQuery(sql);
-            //while(res.next()){
-              //  if (res[i])
-            //}
+            int flag=0;
+            while(res.next()){
+                if (res.getString("ID").equals(user_name)){
+                    if(res.getString("PASSWORD").equals(password)){
+                        JOptionPane.showMessageDialog(jfrm,"Authentication Succesful");
+                        flag=1;
+                        break;
+                    }
+                
+                }}
+            if (flag==0){
+              JOptionPane.showMessageDialog(jfrm,"Authentication Not Succesful");  
+            }
+            
            
             
         }
@@ -87,14 +96,8 @@ public class LibrarianLogin implements ActionListener  {
             err.printStackTrace();
         }
         
-        if (password.equals("admin123")&& user_name.equals("admin")){
-            jfrm.setVisible(false);
-            new AdminInterface();}
-        else{
-            JOptionPane.showMessageDialog(jfrm, "Authentication Failed");}
-        }
-        //
+                
         }
 
-
+}
 
