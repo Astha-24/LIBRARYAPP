@@ -56,6 +56,8 @@ public class LIBRARYAPP extends JFrame implements ActionListener {
             ad.jfrm.setVisible(true);            
         }
         if(e.getActionCommand().equals("Librarian Login")){
+            this.dispose();
+            new LibrarianLogin();
         }
     }
     
