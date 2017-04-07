@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 
-public class ViewLibrarian extends JFrame {
+public class ViewBooks extends JFrame {
     /*DB Connections*/
     DatabaseConnection dbconn;
     Connection conn;
@@ -32,13 +32,13 @@ public class ViewLibrarian extends JFrame {
      JScrollPane jsp;
      TableModel model;
             
-    public ViewLibrarian(){
+    public ViewBooks(){
         //Vector Coloumn;
         try{   
             dbconn= new DatabaseConnection();
             conn=dbconn.setConnection();
             stmt=conn.createStatement();
-            sql="select * from librarian";
+            sql="select * from book";
             res=stmt.executeQuery(sql);
             ResultSetMetaData rsmt=res.getMetaData();
             int c=rsmt.getColumnCount();
@@ -63,11 +63,7 @@ public class ViewLibrarian extends JFrame {
            jsp=new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            setLayout(new BorderLayout());
-           //setSize(500,300);
-           /* For setting size to full screen*/
-           setExtendedState(JFrame.MAXIMIZED_BOTH); 
-           setUndecorated(true);
-
+           setSize(900,300);
            getContentPane().add(new JLabel("Drag to move", JLabel.CENTER),
                 BorderLayout.CENTER);
 
@@ -80,7 +76,7 @@ public class ViewLibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new AdminInterface();
+                new LibrarianInterface();
                 
             }
         });

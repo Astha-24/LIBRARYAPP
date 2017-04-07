@@ -79,7 +79,8 @@ public class LibrarianLogin implements ActionListener  {
             while(res.next()){
                 if (res.getString("ID").equals(user_name)){
                     if(res.getString("PASSWORD").equals(password)){
-                        JOptionPane.showMessageDialog(jfrm,"Authentication Succesful");
+                        jfrm.dispose();
+                        new LibrarianInterface();
                         flag=1;
                         break;
                     }
