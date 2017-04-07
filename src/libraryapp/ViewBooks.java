@@ -63,7 +63,10 @@ public class ViewBooks extends JFrame {
            jsp=new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            setLayout(new BorderLayout());
-           setSize(900,300);
+           //setSize(900,300);
+           /* For setting size to full screen*/
+           setExtendedState(JFrame.MAXIMIZED_BOTH); 
+           setUndecorated(true);
            getContentPane().add(new JLabel("Drag to move", JLabel.CENTER),
                 BorderLayout.CENTER);
 
