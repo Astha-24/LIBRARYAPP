@@ -82,13 +82,24 @@ public class LibrarianInterface extends JFrame implements ActionListener {
            new IssueBook();
        
        }
-    /* if(e.getActionCommand().equals("Logout")){
+     if(e.getActionCommand().equals("View Issued Books")){
+         this.dispose();
+         new ViewIssueBook();
+     
+     }
+     
+     if(e.getActionCommand().equals("Return Book")){
+           
+           this.setVisible(false);
+           new ReturnBook();
+       
+       }
+     if(e.getActionCommand().equals("Logout")){
            
            this.setVisible(false);
            new LIBRARYAPP();
        
        }
-    }*/
+    }
     
-}
 }
