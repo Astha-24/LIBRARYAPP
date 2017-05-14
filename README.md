@@ -3,4 +3,4 @@
 
 
 
-Download and use the project, just by setting the MYSQL PATH, on src/connection.java.
+Download and use the project, runs on NetBean IDE just by setting the MYSQL PATH, on src/DatabaseConnection.java.
